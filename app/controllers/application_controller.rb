@@ -110,7 +110,7 @@ class ApplicationController < Sinatra::Base
       file = params[:file][:tempfile]
       @upload = Upload.new
       @upload.image_url = @filename
-      @upload.order << @order 
+      @upload.order = @order 
       @upload.title = params[:title]
       @upload.save
       
