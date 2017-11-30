@@ -1,0 +1,54 @@
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
+<form action="/orders/<%= @order.id %>/edit" method="post">
+  <input id="hidden" type="hidden" name="_method" value="patch">
+  <label for="task_id">Select a task</label>
+  <select name="order[task_id] id="order_task_id" value="<%=@order.task_id%>">
+    <option value="">Please select</option>
+    <%Order.task_choices.each do |id, task|%>
+    <option value="<%=id%>"<%=" selected" if id.to_i == @order.task_id%>><%=task%></option>
+    <%end%>
+  </select>
+  <br></br>
+  <label for="frequency_id">Select a frequency</label>
+   <select name="order[frequency_id] id="order_frequency_id">
+  <option value="">Please select</option>
+  <%Order.frequency_choices.each do |id, frequency|%>
+    <option value="<%=id%>"<%=" selected" if id.to_i == @order.frequency_id%>><%=frequency%></option>
+    <%end%>
+  </select>
+<br></br>
+  <label for="site_id">Select a site</label>
+  <select name="order[site_id] id="order_site_id">
+  <option value="">Please select</option>
+  <%Order.site_choices.each do |id, site|%>
+    <option value="<%=id%>"<%=" selected" if id.to_i == @order.site_id%>><%=site%></option>
+    <%end%>
+  </select>
+<br></br>
+  <label for="client_id">Select a client</label>
+<select name="order[client_id] id="order_client_id">
+  <option value="">Please select</option>
+   <%Order.client_choices.each do |id, client|%>
+    <option value="<%=id%>"<%=" selected" if id.to_i == @order.client_id%>><%=client%></option>
+    <%end%>
+  </select>
+<br></br>
+<label for="client_id">Select a project status</label>
+<select name="order[status_id] id="order_status_id">
+    <option value="">Please select project status</option>
+    <%Order.status_choices.each do |id, status|%>
+    <option value="<%=id%>"<%=" selected" if id.to_i == @order.status_id%>><%=status%></option>
+    <%end%>
+    </select>
+<br></br>
+<label>Enter Your Name</label>
+<input type="text" name="order[counter]" id="order_counter"> 
+<br></br>
+<label>Enter Update Time</label>
+<input type="date" name="order[updated_date]" id="order_updated_date"> 
+<br></br>
+  <input type="submit" value="submit">
+</form>
+<!-- https://learn.co/tracks/full-stack-web-development-v3/sinatra/forms/sinatra-nested-forms -->
