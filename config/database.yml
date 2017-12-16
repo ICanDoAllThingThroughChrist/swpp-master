@@ -1,0 +1,15 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: sinatraproject
+  pool: 2
+  username: whysavewickd
+  password: whoismy1refuge
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: sinatraproject
+  pool: 2
+  username: whysavewickd
+  password: whoismy1refuge
