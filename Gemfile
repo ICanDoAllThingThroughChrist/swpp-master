@@ -13,6 +13,7 @@ gem "tux"
 gem 'rack-flash3' 
 gem 'faker'
 gem 'pg'
+
 group :test do
   gem 'rspec' 
   gem 'rack-cache', :require => 'rack/cache'
